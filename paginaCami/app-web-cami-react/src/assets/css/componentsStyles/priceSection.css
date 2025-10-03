@@ -1,0 +1,75 @@
+.special-offer {
+  width: 100%;
+  min-height: 100vh; /* ocupa toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #820e2e; /* color de fondo de la sección */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.special-offer .card {
+  background-color: #ffdcf0;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgb(255, 255, 255,0.4);
+  max-width: 600px;
+  width: 100%;
+  height: 100%;           /* ocupa casi todo el alto de la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra verticalmente contenido dentro del card */
+  text-align: center;
+  border: 3px solid black;
+  align-items: center;
+}
+
+.special-offer h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #820e2e;
+}
+
+.special-offer h4 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #ff6fa0;
+}
+
+.special-offer p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.special-offer .price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e60073;
+  margin-top: 20px;
+}
+
+.special-offer button {
+  font-size: 1.3rem;          /* tamaño de letra relativo */
+  border-radius: 30px;
+  width: 200px;             /* ancho fijo */
+  max-width: 90%;           /* no se pase del card en móviles */
+  padding: 12px 20px;       /* altura automática según padding */
+  margin-top: 20px;
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 1200px) {
+  .special-offer h2 {
+    font-size: 2.5rem;
+  }
+  .special-offer h4 {
+    font-size: 2rem;
+  }
+  .special-offer p {
+    font-size: 1.2rem;
+  }
+  .special-offer .price {
+    font-size: 3rem;
+  }
+}

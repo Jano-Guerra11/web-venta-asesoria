@@ -1,0 +1,59 @@
+/* Contenedor principal ocupa toda la pantalla y centra contenido */
+.success-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #fdf2f8; /* color de fondo suave */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Tarjeta central */
+.success-card {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Mensaje principal */
+.success-card h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #820e2e;
+}
+
+/* Mensaje secundario */
+.success-message {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Descripción */
+.success-description {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+/* Botón Volver */
+.volver-btn {
+  padding: 12px 30px;
+  background-color: #820e2e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.volver-btn:hover {
+  background-color: #a31543;
+}

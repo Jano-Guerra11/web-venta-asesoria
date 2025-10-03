@@ -1,0 +1,66 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+  width: 100%;
+ /* height: 100vh;*/
+  padding: 40px 20px;
+   min-height: 100vh;
+  background-color: white;
+  justify-content: center; /* centra verticalmente */
+  align-items: center; /* los textos alineados a la izquierda */
+}
+@media (max-width: 768px) {
+  .contenedor {
+    min-height: auto; /* deja que se adapte al contenido */
+  }
+}
+
+.contenedor h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contenedor h2 span {
+  color: #820e2e; /* resaltar texto */
+  font-family: "Pinyon Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 120%;
+  
+}
+
+.contenedor ol {
+  list-style-type: disc; /* agrega puntos delante de cada li */
+  padding-left: 20px; /* espacio para los puntos */
+  margin-bottom: 20px;
+}
+
+.contenedor ol li {
+  margin-bottom: 15px; /* separación entre items */
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.contenedor p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: black;
+}
+
+/* Pantallas grandes (desktop) */
+@media (min-width: 1200px) {
+  .contenedor ol li {
+    font-size: 1.5rem; /* letra más grande en PC */
+  }
+  .contenedor h2 {
+  font-size: 3rem;
+  }
+  .contenedor p {
+  font-size: 1.5rem;
+  
+}
+  
+}
+
+

@@ -1,0 +1,74 @@
+.product2 {
+  display: flex;
+  flex-direction: column;
+  
+   min-height: 100vh;
+  width: 100%;
+ /*height: 100vh;*/
+  padding: 0;
+  /*height: 100vh;*/
+  background-color:#ffdcf0 ;
+  margin-top: 0;
+}
+
+
+@media (max-width: 768px) {
+  .product2 {
+    min-height: auto; /* deja que se adapte al contenido */
+  }
+}
+
+.textYButton{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-content:center ;
+  flex-grow: 1;
+
+  padding: 20px 0;
+  margin-bottom: 10px;
+}
+
+@media (max-width:367){
+ #prSectionH3{
+  font-size: 25px !important;
+ }
+ .product-img{
+  
+ }
+}
+body{
+
+  scroll-behavior: smooth;
+
+}
+.contFoto{
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  align-content: start;
+  align-self:auto;
+}
+.product-img {
+  width: 100%;
+  height: 100vh;
+  max-height: 600px; /* no crece demasiado en pantallas grandes */
+  min-height: 250px; /* no se vea demasiado pequeño en móviles */
+  object-fit: cover;
+}
+.product h3 {
+  text-align: center;  /* centrado horizontal */
+  margin-top: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+}
+
+.product .btn {
+  display: block;
+  margin: 20px auto 0 auto; /* centra el botón y separa del texto */
+  padding: 10px 25px;
+  font-size: 1rem;
+  
+}

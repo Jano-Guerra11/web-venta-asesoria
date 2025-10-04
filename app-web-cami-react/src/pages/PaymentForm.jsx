@@ -2,8 +2,9 @@ import { MercadoPagoInstance } from '@mercadopago/sdk-react/esm/mercadoPago/init
 import '../assets/css/PaymentStyles.css';
 //import MercadoPagoWallet from '../components/mercado-pago-checkouts/MercadoPagoWallet';
 //import '../assets/css/componentsStyles/fondoAnimado.css';
-
+import  PayPalButton  from '../components/paypalButton';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
+import { PayPalButtons } from "@paypal/react-paypal-js";
 import axios from 'axios';
 import { useState } from 'react';
 
@@ -26,6 +27,7 @@ const createPreference = async () => {
         const {id} = response.data;
         return id;
     }catch(error){
+        console.log("error en create preference de mp ");
         console.log(error);
     }
 }
@@ -45,7 +47,35 @@ const handleBuy = async () => {
         image: "urlImagen"
     };
 
+    // payPal 
+
+ 
+  const handleApprove = async (data, actions) => {
+    const orderId = data.orderID;
+
+    try {
+      const response = await fetch('/capture-order', {
+        method: 'POST',
+        body: JSON.stringify({ orderId }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      const result = await response.json();
+      if (result.status === 'COMPLETED') {
+        alert('Pago realizado con éxito');
+      } else {
+        alert('Error al procesar el pago');
+      }
+    } catch (err) {
+      console.error('Error al capturar el pago:', err);
+    }
+  };
+  
+
     return(
+          
         <div className="payment">
             <div className="data">
 
@@ -68,9 +98,11 @@ const handleBuy = async () => {
                         <button className="medio">Paypal</button>
                         
                         {preferenceId &&  <Wallet initialization={{preferenceId: preferenceId}}/>}
-                       
+                      
+                       {/*<PayPalButton></PayPalButton>*/}
             </div>
         </div>
 
     );
+
 }

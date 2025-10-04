@@ -1,6 +1,9 @@
 import React from "react";
 import "../assets/css/componentsStyles/SuccesPage.css";
 
+import { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
+
 const SuccessPage = ({ email }) => {
 
  const [loading, setLoading] = useState(true);

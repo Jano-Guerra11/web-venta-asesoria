@@ -1,15 +1,20 @@
 
 
 import expres, { application, response } from "express";
-import express from "express";
+import { config } from "dotenv";
 import cors from "cors";
-import bodyParser from 'body-parser';
+
+config();
 // SDK de mercado pago
 import {MercadoPagoConfig, Preference} from "mercadopago";
 
+console.log("acces token mp ",process.env.VITE_ACCES_TOKEN_MP);
+console.log("VITE_PUBLIC_KEY_MP ",process.env.VITE_PUBLIC_KEY_MP);
+console.log("VITE_PAYPAL_CLIENT_ID ",process.env.VITE_PAYPAL_CLIENT_ID);
+console.log("VITE_PAYPAL_CLIENT_SECRET ",process.env.VITE_PAYPAL_CLIENT_SECRET);
 
 const client = new MercadoPagoConfig({
-    accessToken: "APP_USR-5095550430150103-093020-1b7ae50a8e044af3a1020d619d638888-775424071",
+    accessToken:process.env.VITE_ACCES_TOKEN_MP,
 });
 
 const app = expres();

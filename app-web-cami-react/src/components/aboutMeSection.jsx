@@ -14,8 +14,8 @@ export default function AboutMe(){
               </div>
               <div className="col-md-5">
                 <h6 className="title mb-3">SOBRE MI</h6>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae autem rem impedit molestiae hic ducimus, consequuntur ullam dolorem quaerat beatae labore explicabo, sint laboriosam aperiam nihil inventore facilis. Quasi, facilis.</p>
-                <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, amet!</p>
+                <p style={{color:"white"}}>Soy Cami Guerra, estilista y creadora de contenido. Mi propósito es ayudarte a descubrir qué te favorece y a construir una imagen con la que te sientas cómoda, segura y auténtica.</p>
+                <p className="text-muted">Creo que la moda no es seguir tendencias, sino una herramienta para expresar quién sos y potenciar tu mejor versión.</p>
               </div>
             </div>
           </div>

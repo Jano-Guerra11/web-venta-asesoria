@@ -1,6 +1,6 @@
 import '../assets/css/componentsStyles/PosterDiscount.css';
 import { useState } from 'react';
-import fotoCami1 from '../assets/images/fotoCami1.jpeg';
+import mobile from '../assets/images/MOBILEOFF.jpg';
 export default function PosterDiscount(){
 
     const [showModal, setShowModal] = useState(true);
@@ -23,7 +23,7 @@ export default function PosterDiscount(){
             <div className="posterContainer">
             <div className="row poster">
             <div className="col-12">
-            <img src={fotoCami1} alt="fotoDelCartel"></img>
+            <img src={mobile} alt="fotoDelCartel"></img>
             </div> 
             <div className="col-12">
            

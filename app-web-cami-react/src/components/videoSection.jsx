@@ -3,6 +3,7 @@
 import { Navigate, useNavigate } from 'react-router-dom';
 import '../assets/js/script.js';
 import useVideo from "../assets/js/useVideo";
+import video from "../assets/images/video.MOV"
 
 export default function VideoSection() {
         useVideo(); // funcionalidad js del video
@@ -15,9 +16,9 @@ export default function VideoSection() {
     
     <div className="contenedorVideo">
       <div className="hero" id="heroSection">
-        <h3>Título de la sección</h3>
+        <h3>Tu mejor version no se encuentra sola, se construye.</h3>
         <p className="lead" style={{ marginBottom: '30px' }}>
-          Descripción breve que explica el contenido del video y por qué es importante. El video se reproducirá automáticamente sólo cuando la sección entre en pantalla.
+          Este es el momento de conocerte, de descubrir qué te favorece, de empezar a transformar tu imagen y dejar de gastar plata en ropa que después no usas.
         </p>
 
         <div className="video-wrapper">
@@ -30,7 +31,7 @@ export default function VideoSection() {
             preload="none"
             controls
           >
-            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+            <source src={video} type="video/mp4" />
             Tu navegador no soporta el elemento video.
           </video>
         </div>

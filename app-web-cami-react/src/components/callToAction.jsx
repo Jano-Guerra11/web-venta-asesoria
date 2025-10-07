@@ -7,11 +7,10 @@ export default function CallToAction(){
             <div className="about-wrapper">
               <div className="content" style={{ textAlign: 'center' }}>
                 <h5 className="title mb-3">
-                  Lorem ipsum dolor sit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non recusandae
-                  consectetur asperiores deleniti nam temporibus accusantium teneptatum.
+                  Probas miles de looks y ninguno te convence? Amiga vos no sos el problema. Es porque todavía no descubriste lo que realmente te favorece.
                 </h5>
                 <button id="ctaBtn" className="btn btn-outline-primary btn-md">
-                  Programa
+                  Quiero descubrir mi mejor version
                 </button>
               </div>
             </div>

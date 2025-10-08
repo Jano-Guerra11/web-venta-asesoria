@@ -2,10 +2,12 @@ import React from "react";
 import "../assets/css/componentsStyles/SuccesPage.css";
 
 import { useState, useEffect } from "react";
-import {useNavigate} from 'react-router-dom';
+import {useNavigate,useSearchParams } from 'react-router-dom';
 
 const SuccessPage = ({ email }) => {
-
+  const [searchParams] = useSearchParams();
+const mail = searchParams.get('mail');
+  const pago = searchParams.get('pago');
  const [loading, setLoading] = useState(true);
   const [pagoExitoso, setPagoExitoso] = useState(false);
   const navigate = useNavigate();
@@ -14,8 +16,23 @@ const SuccessPage = ({ email }) => {
     // Redirige al home o a otra página
     window.location.href = "/";
   };
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+const handlePago = async (pago) => {
+    if (pago !== import.meta.env.VITE_CLAVE_CONFIRMACION_PAGO) {
+      navigate('/');
+    } else {
+      console.log('Pago realizado con PayPal ---');
+      await sleep(10000); // Pausa de 3 segundos
+      // Aquí puedes agregar la lógica que deseas ejecutar después de la pausa
+    }
+  };
 
    useEffect(() => {
+ // ------ paypal --------- 
+handlePago(pago);
+
+    // ---- mercado pago ---------
     // Consultamos al backend si el usuario pagó
     fetch(`http://localhost:3000/verify_payment/${email}`)
       .then((res) => res.json())
@@ -29,6 +46,10 @@ const SuccessPage = ({ email }) => {
       })
       .catch(() => navigate("/", { replace: true }))
       .finally(() => setLoading(false));
+
+ 
+      // ------ paypal --------- 
+
   }, [email, navigate]);
 
   if (loading) return <p>Cargando...</p>;

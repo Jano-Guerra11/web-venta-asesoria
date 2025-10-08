@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 const MercadoPagoWallet = () => {
     const [preferenceId,setPreferenceId] = useState(null);
-    const publicKey = "APP_USR-1e9d8863-f71e-4ed5-9848-72168cb69f54";
+    const publicKey = import.meta.env.VITE_PUBLIC_KEY_MP;
     const createPreferenceIdEndpoint = "https://iifhv6si9g.execute-api.us-east-2.amazonaws.com/dev/mercadopago/create-preference-id";
 
     useEffect(()=>{

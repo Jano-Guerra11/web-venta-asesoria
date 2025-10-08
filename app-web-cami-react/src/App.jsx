@@ -12,10 +12,17 @@ import PaymentForm from './pages/PaymentForm.jsx';
 import SuccessPage from './pages/SuccesPage.jsx';
 
 function App() {
+
+
+  const initialOptions = {
+    clientId: import.meta.env.VITE_PAYPAL_CLIENT_ID,
+    currency: "USD",
+    intent: "capture",
+};
   const [count, setCount] = useState(0)
 
   return (
-    <PayPalScriptProvider options={{ "client-id": "AXghLv9XucX3yktGqa-aaoFOyFbXXGtg2l_IIBiys8s-WPCaVFn8cKZtDnFT6yU3MKI2emT36CTd5rhn" }}>
+    <PayPalScriptProvider options={initialOptions}>
             
     <Router>
       <Routes>

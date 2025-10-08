@@ -3,7 +3,7 @@
 import { Navigate, useNavigate } from 'react-router-dom';
 import '../assets/js/script.js';
 import useVideo from "../assets/js/useVideo";
-import video from "../assets/images/video.MOV"
+//import video from "../assets/images/video.MOV"
 
 export default function VideoSection() {
         useVideo(); // funcionalidad js del video
@@ -31,7 +31,7 @@ export default function VideoSection() {
             preload="none"
             controls
           >
-            <source src={video} type="video/mp4" />
+            <source src={''} type="video/mp4" />
             Tu navegador no soporta el elemento video.
           </video>
         </div>

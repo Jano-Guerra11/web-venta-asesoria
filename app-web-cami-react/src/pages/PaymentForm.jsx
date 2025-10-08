@@ -10,7 +10,7 @@ import { useState } from 'react';
 import PaypalWallet from '../components/paypal-checkout/PaypalWallet';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import PayPalButton from '../components/paypalButton';
-
+import { useNavigate } from 'react-router-dom';
 
 function Message({ content }) {
   return <p>{content}</p>;
@@ -20,16 +20,24 @@ function Message({ content }) {
 
 export default function PaymentForm(){
 
+  const navigate = useNavigate();
+
    const initialOptions = {
     "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,
     "enable-funding": "paylater,venmo",
     "data-sdk-integration-source": "integrationbuilder_sc",
   };
   const [message, setMessage] = useState("");
+const[mail,setMail]= useState("");
+
+  const handleEmailChange = (e) => {
+    setMail(e.target.value);
+  };
+
 
 const [preferenceId,setPreferenceId] = useState(null);
 const [clickPaypal,setClickPaypal] = useState(false);
-initMercadoPago('APP_USR-29ffc75f-b80c-41a5-bf68-be418939fb97',{locale: "es-AR",});
+initMercadoPago(import.meta.env.VITE_PUBLIC_KEY_MP,{locale: "es-AR",});
 
 
 const createPreference = async () => {
@@ -60,40 +68,57 @@ const handlePayPal = ()=>{
   setClickPaypal(true);
 }
 
-    const product = {
-        title : "Ejemplo",
-        description: "esta es una descripcion del producto",
-        price: 50,
-        image: "urlImagen"
-    };
+    
+
 
     // payPal 
-
- 
-  const handleApprove = async (data, actions) => {
-    const orderId = data.orderID;
-
-    try {
-      const response = await fetch('/capture-order', {
-        method: 'POST',
-        body: JSON.stringify({ orderId }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      const result = await response.json();
-      if (result.status === 'COMPLETED') {
-        alert('Pago realizado con éxito');
-      } else {
-        alert('Error al procesar el pago');
-      }
-    } catch (err) {
-      console.error('Error al capturar el pago:', err);
-    }
-  };
+  // handleApprove atravez de localStorage, no recomendado, poco seguro
   
+  
+  const handleApprove = (data, actions) => {
+    return actions.order.capture().then((details) => {
+      // Verificar si el pago fue exitoso
+      if (details.status === "COMPLETED") {
+        // Guardar en localStorage que el pago fue exitoso
+        localStorage.setItem("paymentCompleted", "true");
+        navigate(`/SuccesPage?mail=${encodeURIComponent(mail)}&pago=${import.meta.env.VITE_CLAVE_CONFIRMACION_PAGO}`);
+      } else {
+        // Manejar el caso de pago no completado
+      alert("El pago no se completó correctamente.");
+    }
+  });
+};
 
+
+// handle approve, consultando al back si el pago fue exitoso, seguro
+/*
+const handleApprove = (data, actions) => {
+  return actions.order.capture().then((details) => {
+    if (details.status === "COMPLETED") {
+      // Enviar solicitud al backend para registrar el pago
+      fetch("http://localhost:3000/api/register_payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: "usuario123",
+          paymentDetails: details,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.message === "Pago registrado") {
+            navigate(`/SuccesPage?mail=${encodeURIComponent(mail)}&pago=${import.meta.env.VITE_CLAVE_CONFIRMACION_PAGO}`);
+          }
+        });
+    } else {
+      alert("El pago no se completó correctamente.");
+    }
+  });
+};
+  
+*/
     return(
           
         <div className="payment">
@@ -103,7 +128,8 @@ const handlePayPal = ()=>{
                 <input type="text" id="nombre" name="nombre" required  />
 
                 <label for="email">Correo Electrónico (Gmail):</label>
-                <input type="email" id="email" name="email" required  pattern="[a-zA-Z0-9._%+-]+@gmail\.com" title="Por favor, ingrese un correo electrónico válido de Gmail."/>
+                <input onChange={handleEmailChange} 
+                type="email" id="email" name="email" required  pattern="[a-zA-Z0-9._%+-]+@gmail\.com" title="Por favor, ingrese un correo electrónico válido de Gmail."/>
 
                 
 
@@ -119,7 +145,10 @@ const handlePayPal = ()=>{
                         
                         {preferenceId &&  <Wallet initialization={{preferenceId: preferenceId}}/>}
 
-                         {clickPaypal && <PayPalButton></PayPalButton> }
+                         {/*clickPaypal && <PayPalButton></PayPalButton> */}
+                         {clickPaypal && <PayPalButtons style={{layout:"horizontal"}}
+                         onApprove={handleApprove}
+                         ></PayPalButtons> }
                       
                        {/*
                        <div className="App">

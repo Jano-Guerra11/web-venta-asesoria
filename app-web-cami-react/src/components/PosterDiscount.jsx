@@ -22,19 +22,19 @@ export default function PosterDiscount(){
             
             <div className="posterContainer">
             <div className="row poster">
-            <div className="col-12">
+            
             <img src={mobile} alt="fotoDelCartel"></img>
+            <button onClick={() => setShowModal(false)} className="btn">
+               Cerrar
+           </button>
+           
             </div> 
-            <div className="col-12">
+            
            
             </div>
-            <div className="col-12">
-             <button onClick={() => setShowModal(false)} className="btn">
-                Cerrar
-            </button>
-            </div>
-            </div>
-            </div>
+            
+        
+            
         )}
 
     </div>

@@ -13,20 +13,26 @@
 }
 
 .poster{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+  align-content: center;
   background-image: '../../assets/images/MOBILEOFF.jpg';
-    
+    object-fit: contain;
 background: #ffdcf0;
-  padding: 30px;
+  padding: 10px 10px;
+  
   border-radius: 10px;
   text-align: center;
   max-width: 500px;
   width: 90%;
-  max-height: 600px;
-  height: 70%;
+  max-height: 700px;
+  height: 100%;
   box-shadow: 0 4px 20px rgba(130,14,46,0.3);
 }
 img{
-    
+    margin-top: 10px;
     max-width: 100%;
     height: auto;    /* Mantiene proporciones */
     display: block;  /* Evita espacios extra debajo de la imagen */
@@ -39,9 +45,10 @@ img{
    
 }
 button{
-    margin-top: 20px !important;
+    margin-top: 5px !important;
     background-color: #820e2e !important;
     color: white !important;
+    width: 25%;
     border: 2px solid transparent !important;
 }
 
@@ -50,3 +57,57 @@ button:hover{
      color: black !important;
      border: 2px solid #820e2e !important;
 }
+
+@media(max-width: 505px){
+  .poster{
+    height: 80%;
+  }
+}
+@media(max-width: 470px){
+  .poster{
+    height: 75%;
+  }
+}
+@media(max-width: 420px){
+  .poster{
+    height: 65%;
+  }
+}
+
+@media(max-width: 380px){
+  .poster{
+    height: 60%;
+  }
+}
+@media(max-width: 340px){
+  .poster{
+    height: 55%;
+  }
+  button{
+    width: 30%;
+    text-align: center;
+  }
+}
+
+@media(max-width: 300px){
+  .poster{
+    height: 50%;
+    
+  }
+  button{
+    width: 30%;
+    text-align: center;
+  }
+}
+
+@media(max-width: 280px){
+  .poster{
+    height: 45%;
+    
+  }
+  button{
+    width: 35%;
+    text-align: center;
+  }
+}
+

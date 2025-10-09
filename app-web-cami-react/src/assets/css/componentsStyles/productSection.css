@@ -58,17 +58,157 @@ body{
   min-height: 250px; /* no se vea demasiado pequeño en móviles */
   object-fit: cover;
 }
-.product h3 {
+.product2 h3 {
   text-align: center;  /* centrado horizontal */
   margin-top: 20px;
   font-size: 1.5rem;
   margin-bottom: 50px;
 }
 
-.product .btn {
+.product2 .btn {
   display: block;
   margin: 20px auto 0 auto; /* centra el botón y separa del texto */
   padding: 10px 25px;
   font-size: 1rem;
+  width: 100%;
+}
+
+
+@media(max-width:600px){
+  .product-img{
+     object-position: center 18%;
+  }
+}
+@media(max-width:550px){
+  .product-img{
+     object-position: center 25%;
+  }
+}
+
+@media(max-width:432px){
+  .product-img{
+    object-fit: contain;
+    object-position: top;
+  }
+  .textYButton{
+    margin-top: 0;
+    padding-top:0 ;
+  }
+}
+
+
+@media(max-width:420px){
+  .product-img{
+    margin-bottom: 185px;
+    object-fit: contain;
+    object-position: top;
+  }
+  .textYButton{
+   
+    position: absolute;
+    margin-top: 0;
+    padding-top:0 ;
+    z-index: 2;
+    top: 550px;
+  }
+  .product2 h3{
+    margin-bottom: 10px;
+  }
+}
+
+@media(max-width:377px){
   
+  .textYButton{
+   
+    position: absolute;
+    margin-top: 0;
+    padding-top:0 ;
+    z-index: 2;
+    top: 500px;
+  }
+  .product2 h3{
+    margin-bottom: 10px;
+  }
+  .contFoto{
+    height: 700px;
+  }
+}
+@media(max-width:345px){
+  .textYButton{
+    top:460px;
+  }
+}
+
+@media(max-width:310px){
+  .textYButton{
+    top:420px;
+  }
+  .contFoto{
+    height: 630px;
+  }
+}
+@media(max-width:297px){
+  .textYButton{
+    top:400px;
+  }
+  .contFoto{
+    height: 630px;
+  }
+}
+@media(max-width:280px){
+  .textYButton{
+    top:380px;
+  }
+  .contFoto{
+    height: 630px;
+  }
+}
+@media(max-width:266px){
+  .textYButton{
+    top:360px;
+  }
+  .contFoto{
+    height: 630px;
+  }
+}
+@media(max-width:243px){
+  .textYButton{
+    top:330px;
+  }
+  .contFoto{
+    height: 630px;
+  }
+}
+@media(max-width:210px){
+  .textYButton{
+    top:300px;
+  }
+  .contFoto{
+    height: 600px;
+  }
+}
+
+@media(max-width:203px){
+  .textYButton{
+    top:280px;
+  }
+  .contFoto{
+    height: 620px;
+  }
+}
+
+
+
+
+@media(max-width:270px){
+  .product2 .btn{
+    width:90%;
+
+  }
+}
+@media(max-width:240px){
+  .product2 .btn{
+    width:80%;
+
+  }
 }
